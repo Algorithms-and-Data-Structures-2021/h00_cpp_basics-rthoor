@@ -55,8 +55,11 @@ bool copy_2d_array(int **arr_2d_source, int **arr_2d_target, int num_rows, int n
 
 // Задание 4
 void reverse_1d_array(vector<int> &arr) {
-    for(int j = 0; j < arr.size(); j++){
-        arr.insert(arr.begin(), arr.back());
+    for(int j = 0; j < (arr.size()/2); j++){
+        arr.insert(arr.begin(), arr.size()-j);
+        arr.erase(arr.end()-j);
+        arr.insert(arr.end(), arr[j+1]);
+        arr.erase(arr.begin()+j+1);
     }
 }
 
@@ -118,3 +121,4 @@ vector<int> find_common_elements(vector<int> &arr_a, vector<int> &arr_b) {
     }
     return answer;
 }
+
